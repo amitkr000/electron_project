@@ -37,10 +37,31 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
     // If valid, proceed with form submission
     if (isValid) {
-        // Here we will perform an AJAX request or similar to handle the actual login
-
-        // Redirect to dashboard
-        window.location.href = 'dashboard.html';
+        
+        // Send the login credentials to the C++ backend
+        fetch('http://localhost:8000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        })
+        .then(response => response.text())
+        .then(text => {
+            if (text === "Login successful") {
+                // Navigate to the next page upon successful login
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Login failed. Please check your username and password.");
+            }
+        })
+        .catch(err => {
+            alert('Error:', err);
+            console.error('Error:', err);
+        });
         
     }
 });

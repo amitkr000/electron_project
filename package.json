@@ -10,6 +10,7 @@
   "author": "Amit Kumar",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^31.3.1"
+    "electron": "^31.3.1",
+    "electron-packager": "^17.1.2"
   }
 }

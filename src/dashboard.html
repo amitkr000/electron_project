@@ -41,8 +41,8 @@
             <div class="calculator-container">
                 <input type="text" class="display" value="0" readonly>
                 <div class="buttons">
-                    <button class="button-gray angle">Rad</button>
-                    <button class="button-gray angle active">Deg</button>
+                    <button class="button-gray angle active">Rad</button>
+                    <button class="button-gray angle">Deg</button>
                     <button class="button-gray">x!</button>
                     <button class="button-gray">(</button>
                     <button class="button-gray">)</button>
@@ -151,8 +151,6 @@
                         degreeMode = value === 'Rad';
                         anglebtn.forEach(btn => btn.classList.remove('active'));
                         this.classList.add('active');
-                        //document.querySelector('.button-gray:nth-child(1)').classList.toggle('button-blue');
-                        //document.querySelector('.button-gray:nth-child(3)').classList.toggle('button-blue');
                     } else if (value === 'Ans') {
                         expression += memory;
                     } else {
