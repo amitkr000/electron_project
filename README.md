@@ -4,6 +4,12 @@
 
 This project is a desktop application built using Electron for the frontend and C++ for the backend. The app includes an authentication screen and a simple calculator. The authentication screen verifies user credentials against a backend server written in C++ and, upon successful login, transitions to a calculator interface.
 
+<img src="https://github.com/user-attachments/assets/79e0dc70-cd87-4486-b37c-00f98ebc57d5" alt="description" width="900" height="700"/>
+
+<img src="https://github.com/user-attachments/assets/cafe2858-343e-4bc9-beb8-cdb99c70eef4" alt="description" width="900" height="700"/>
+
+
+
 ## Technologies Used
 
 - **Electron**: A framework for building cross-platform desktop apps with JavaScript, HTML, and CSS.
