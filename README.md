@@ -82,27 +82,14 @@ To package the application as a desktop app:
    ```
    This command will create a packaged version of the app in the `release-builds` directory.
 
-## Contributing
+## Testing the Build
 
-Contributions are welcome! Please follow these steps:
+- Username - user
+- Password - password
 
-1. **Fork the Repository**: Create your fork of the repository.
-2. **Create a Branch**: Create a new branch for your feature or bugfix.
-   ```bash
-   git checkout -b feature-name
-   ```
-3. **Make Changes**: Implement your feature or fix.
-4. **Commit and Push**: Commit your changes and push them to your fork.
-   ```bash
-   git commit -m "Add new feature"
-   git push origin feature-name
-   ```
-5. **Create a Pull Request**: Open a pull request against the main branch of the original repository.
+> [!NOTE]
+> Currently, Not using dababase to store login credential, For testing purpose the default Username and Password is stored in memory on backend server.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize the content based on the specifics of your project and your preferred practices.
