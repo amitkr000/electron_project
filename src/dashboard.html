@@ -15,6 +15,159 @@
         </div>
     </div>
 
-    <script src="renderer.js"></script>
+    <!-- Main Container -->
+    <div class="main">
+        <div class="dashboard">
+            <div class="dashboard-logo">
+                <img src="../assets/logo-w.png" alt="Company Logo">
+            </div>
+            <button class="dashboard-button">
+                <img src="../assets/cal-icon.png" alt="Calculator Icon">
+                Calculator
+            </button>
+        </div>
+        <div class="content">
+            <div class="top-bar">
+                <div class="title">Calculator</div>
+                <div class="user-info">
+                    <div>
+                        <p class="greet">Hello</p>
+                        <p class="user">User</p>
+                    </div>
+                    <img src="../assets/user.png" alt="User Image">
+                </div>
+            </div>
+
+            <div class="calculator-container">
+                <input type="text" class="display" value="0" readonly>
+                <div class="buttons">
+                    <button class="button-gray angle">Rad</button>
+                    <button class="button-gray angle active">Deg</button>
+                    <button class="button-gray">x!</button>
+                    <button class="button-gray">(</button>
+                    <button class="button-gray">)</button>
+                    <button class="button-gray">%</button>
+                    <button class="button-gray">AC</button>
+
+                    <button class="button-gray">Inv</button>
+                    <button class="button-gray">sin</button>
+                    <button class="button-gray">ln</button>
+                    <button class="button-dark-gray">7</button>
+                    <button class="button-dark-gray">8</button>
+                    <button class="button-dark-gray">9</button>
+                    <button class="button-gray">÷</button>
+
+                    <button class="button-gray">π</button>
+                    <button class="button-gray">cos</button>
+                    <button class="button-gray">log</button>
+                    <button class="button-dark-gray">4</button>
+                    <button class="button-dark-gray">5</button>
+                    <button class="button-dark-gray">6</button>
+                    <button class="button-gray">*</button>
+
+                    <button class="button-gray">e</button>
+                    <button class="button-gray">tan</button>
+                    <button class="button-gray">√</button>
+                    <button class="button-dark-gray">1</button>
+                    <button class="button-dark-gray">2</button>
+                    <button class="button-dark-gray">3</button>
+                    <button class="button-gray">-</button>
+
+                    <button class="button-gray">Ans</button>
+                    <button class="button-gray">EXP</button>
+                    <button class="button-gray">x^y</button>
+                    <button class="button-dark-gray">0</button>
+                    <button class="button-gray">.</button>
+                    <button class="button-blue">=</button>
+                    <button class="button-gray">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        document.getElementById('minimizeBtn').addEventListener('click', () => {
+            window.electron.minimize();
+            console.log('minimize');
+        });
+
+        document.getElementById('closeBtn').addEventListener('click', () => {
+            window.electron.close();
+            console.log('close');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const display = document.querySelector('.display');
+            const buttons = document.querySelectorAll('.button-gray, .button-dark-gray, .button-blue');
+            const anglebtn = document.querySelectorAll('.angle');
+
+            let expression = '';
+            let memory = '';
+            let degreeMode = true;  // true = radians, false = degrees
+
+            function updateDisplay() {
+                display.value = expression || '0';
+            }
+
+            function calculateFactorial(n) {
+                return n === 0 || n === 1 ? 1 : n * calculateFactorial(n - 1);
+            }
+
+            function evaluateExpression(expr) {
+                try {
+                    if (degreeMode) {
+                        expr = expr.replace(/sin|cos|tan|log|ln/g, (match) => `Math.${match}`);
+                    } else {
+                        expr = expr.replace(/sin|cos|tan/g, (match) => `Math.${match}(Math.PI / 180 * `);
+                    }
+                    expr = expr.replace(/π/g, 'Math.PI')
+                        .replace(/e/g, 'Math.E')
+                        .replace(/√/g, 'Math.sqrt')
+                        .replace(/x!/g, 'calculateFactorial')
+                        .replace(/\^/g, '**')
+                        .replace(/÷/g, '/')
+                        .replace(/×/g, '*')
+                        .replace(/%/g, '/100');
+
+                    return eval(expr);
+                } catch (error) {
+                    return 'Error';
+                }
+            }
+
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const value = this.textContent;
+
+                    if (value === 'AC') {
+                        expression = '';
+                        memory = '';
+                    } else if (value === '=') {
+                        expression = evaluateExpression(expression).toString();
+                        memory = expression;
+                    } else if (value === 'Rad' || value === 'Deg') {
+                        degreeMode = value === 'Rad';
+                        anglebtn.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
+                        //document.querySelector('.button-gray:nth-child(1)').classList.toggle('button-blue');
+                        //document.querySelector('.button-gray:nth-child(3)').classList.toggle('button-blue');
+                    } else if (value === 'Ans') {
+                        expression += memory;
+                    } else {
+                        expression += value;
+                    }
+
+                    updateDisplay();
+                });
+            });
+
+            updateDisplay();
+        });
+
+
+
+    </script>
 </body>
 </html>

@@ -170,3 +170,152 @@ body {
     ;
 }
 
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard {
+    position: relative;
+    top: -4rem;
+    width: 20%;
+    height: 100vh;
+    background: linear-gradient(271.11deg, #161639 99.01%, #3E3E9F -104.26%);
+    padding: 1.5rem;
+    border-top-right-radius: 2.5rem;
+    border-bottom-right-radius: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-logo img{
+    width: 100%;
+}
+
+.dashboard-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-top: 4rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    font-size: 1.25rem;
+    text-align: left;
+}
+
+.dashboard-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.content {
+    width: 80%;
+    padding: 2rem;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.top-bar .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.top-bar .user-info {
+    display: flex;
+    align-items: center;
+    gap:0.5rem;
+}
+
+.top-bar .user-info .greet{
+    font-size: 1rem;
+    color: #838397;
+}
+
+.top-bar .user-info .user{
+    font-size: 1.5rem;
+    color: #161639;
+}
+
+.top-bar .user-info img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    margin-left: 2rem;
+}
+
+.calculator-container {
+    background-color: #2b2b2b;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.display {
+    grid-column: span 7;
+    background-color: #1c1c1c;
+    border-radius: 0.625rem;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    text-align: right;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 1.25rem;
+}
+
+.buttons {
+    grid-column: span 7;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+
+.buttons .angle.active{
+    color: rgb(129, 129, 129);
+}
+
+.buttons button {
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttons button:active {
+    background-color: #5c5c5c;
+}
+
+.button-blue {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.button-gray {
+    background-color: #5f6368;
+    color: white;
+}
+
+.button-dark-gray {
+    background-color: #3c4043;
+    color: white;
+}
+
+.button-wide {
+    grid-column: span 2;
+}
