@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Wi-Jungle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Custom Title Bar -->
+    <div class="title-bar">
+        <div class="title-bar-buttons">
+            <button id="minimizeBtn">-</button>
+            <button id="closeBtn">×</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Side with Image and Logo -->
+        <div class="left-side">
+            <img class="logo-img" src="../assets/logo.png" alt="Wi-Jungle Logo">
+            <img class="bg-img" src="../assets/image.png" alt="Image" class="logo">
+        </div>
+
+        <!-- Right Side with Form -->
+        <div class="right-side">
+            <form id="loginForm">
+                <h1>Let’s Secure Your PC</h1>
+                <select id="userType" required>
+                    <option value="" disabled selected>Select User Type</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+                <input type="text" id="username" placeholder="Username" required>
+                <div id="usernameError" class="error"></div>
+                <input type="password" id="password" placeholder="Password" required>
+                <div id="passwordError" class="error"></div>
+                <label>
+                    <input class="checkbox" type="checkbox" id="terms" required> 
+                    <p>By continuing, you agree to <a>Terms & Conditions</a> and <a>Privacy Policy</a> .</p>
+                </label>
+                <button type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
+
