@@ -16,6 +16,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     // Clear previous errors
     document.getElementById('usernameError').textContent = '';
     document.getElementById('passwordError').textContent = '';
+    document.getElementById('submitError').textContent = '';
 
     // Get form values
     const username = document.getElementById('username').value.trim();
@@ -59,7 +60,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             }
         })
         .catch(err => {
-            alert('Error:', err);
+            document.getElementById('submitError').textContent = 'server is down';
             console.error('Error:', err);
         });
         
